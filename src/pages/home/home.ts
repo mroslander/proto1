@@ -1,18 +1,22 @@
 import { ViewChild, Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SceneGraph } from '../../components/scenegraph/scenegraph';
+import { Customer, Service } from '../../services/dummy.service';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  providers: [Service]
 })
 export class HomePage {
 
   @ViewChild('scenegraph')
   sceneGraph: SceneGraph;
 
-  constructor(public navCtrl: NavController) {
+  customers: Customer[];
 
+  constructor(public navCtrl: NavController, service: Service) {
+    this.customers = service.getCustomers();
   }
 
   ionViewDidEnter() {
@@ -22,5 +26,5 @@ export class HomePage {
   ionViewDidLeave() {
     this.sceneGraph.stopAnimation();
   }
-  
+
 }

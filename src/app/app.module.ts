@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { SceneGraph } from '../components/scenegraph/scenegraph';
+import { DxDataGridModule } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,11 @@ import { SceneGraph } from '../components/scenegraph/scenegraph';
     HomePage,
     TabsPage,
     SceneGraph
+    
   ],
   imports: [
     BrowserModule,
+    DxDataGridModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
